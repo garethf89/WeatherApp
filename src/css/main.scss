@@ -1,0 +1,145 @@
+//Breakpoint
+$desktop: 960px;
+$large: 1400px;
+
+//colors
+$grey: #D3D3D3;
+$grad1: #136a8a;
+$grad2: #267871;
+
+@import 'normalize'; 
+
+html{
+	min-height:100%;
+    background: $grad2;
+    background: -moz-linear-gradient(top, $grad1 0%, $grad2 100%);
+    background: -webkit-linear-gradient(top, $grad1 0%,$grad2 100%);
+    background: linear-gradient(to bottom, $grad1 0%,$grad2 100%);
+}
+
+body{
+	font-family: 'Lato', sans-serif;
+	height:100%;
+    color: #fff;
+	min-height: 100%;
+}
+
+/* Typography */
+h1{
+	font-weight:300;
+	text-align: center;
+    margin: 1em 0;
+    font-weight: 100;
+    font-size: 3em;
+    
+    @media only screen and (min-width:$desktop){
+		text-align: left;    
+	}
+    
+}
+
+h2{
+	font-weight: 200;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* Globals */
+.container{
+	max-width:1024px;
+	margin: 0 auto;
+}
+
+.small-text{
+	font-size:.8em;
+}
+
+/* Weather per day */
+.weather{
+	
+	.weather__day{
+		
+		width:49%;
+		display: inline-block;
+		position: relative;
+		vertical-align: text-top;
+		padding: 0 5%;
+		box-sizing: border-box;
+		border-right: 1px solid $grey;
+		margin-bottom: 2em;
+		
+		&:nth-child(odd){
+			border-right: none;
+		}
+		
+		@media only screen and (min-width:$desktop){
+			width:20%;
+			margin-bottom: 0;
+			&:nth-child(odd){
+				border-right: 1px solid $grey;
+			}
+		}
+    
+		p{
+			margin:0;
+		}
+		
+		.temps{
+			opacity:0.6;
+		}
+		
+		&:last-of-type{
+			border-right: none;
+		}
+		
+	}
+	
+	.current_day{
+		width:100%;
+		text-align: center;
+		margin: 2em 0 5em;
+		
+		span{
+			display: block;
+		}		
+		
+		.temp{
+			font-weight: 100;
+			font-size: 5em;
+			margin: .25em 0;
+		}
+		
+		&__icon{
+			img,p{
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+	}
+	
+	.day{
+		text-transform: uppercase;
+	}
+	
+	.temp{
+		&:after {
+			content: "\00b0"
+		}
+	}
+	
+}
+
+
+.loader{
+	text-align: center;
+	@media only screen and (min-width:$desktop){
+		text-align: left;    
+	}
+}
+
+.updated{	
+	margin: 4em 0 0 2em;
+	@media only screen and (min-width:$desktop){
+		margin: 4em 0;
+	}
+}
