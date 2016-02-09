@@ -42,14 +42,17 @@
     	
     		<h1 >Weather App</h1>
     		
-    		<div class="loader" ng-show="!currentDaySet || !forecastSet" >
+    		<p class="error centered-mobile" ng-show="errorMessage">{{errorMessage}}</p>
+    		<p class="small-text updated centered-mobile" ng-class="{'loading': fetchingToday || fetchingForecast}" ng-if="lastUpdated">Last update: {{lastUpdated | date:'medium'}}</p>
+    		
+    		<div class="loader centered-mobile" ng-if="loadingActive" >
     			<img class="loading" ng-src="images/default.svg">
     			<p>Getting results..</p>
     		</div>
     	
-    		<h2>{{city}}</h2>
+    		<h2 ng-if="currentDay.length > 0 ">{{city}}</h2>
     		
-    		<div class="weather" ng-show="currentDay.length > 0  || forecastSet" >
+    		<div class="weather" ng-if="!errorGeo && (currentDay.length > 0  || forecastSet)" >
     		
     		  <div class="current_day">
 				  	<div class="current_day__icon">
@@ -67,15 +70,14 @@
 			  </div>  
 				 				  
 			</div>
-    	
-			<p class="small-text updated" ng-if="lastUpdated">Last update: {{lastUpdated | date:'medium'}}</p>
-    	
+    	    	
     	</section>
 
         
         <! -- not using JS minifcation on this demo app -->
         <script type="text/javascript" src="bower_components/angular/angular.js"></script>
         <script src="src/js/app.js"></script>
+		<script src="src/js/controllers.js"></script>
               
     </body>
 </html>
