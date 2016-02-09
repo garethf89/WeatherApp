@@ -6,6 +6,7 @@ weatherApp.run();
 weatherApp.factory('getweather', function($http) {
 	
 	//The appid would be stored in a more secure place however for demo purposes its in here
+	//$q.defer() would be another option to set up this API, but a simple $http call is sufficient here
 	var serviceObj = {},
 		appid = '222048e7e6577ed4b50c0d154ee28a8d',
 		units = "metric";

@@ -374,7 +374,7 @@ h1 {
   margin: 1em 0 0;
   font-weight: 100;
   font-size: 3em; }
-  @media only screen and (min-width: 960px) {
+  @media (min-width: 960px) {
     h1 {
       text-align: left; } }
 
@@ -387,7 +387,7 @@ h2 {
 .container {
   max-width: 1024px;
   margin: 0 auto; }
-  @media only screen and (min-width: 960px) {
+  @media (min-width: 960px) {
     .container {
       padding: 0 1em; } }
 
@@ -396,7 +396,7 @@ h2 {
 
 .centered-mobile {
   text-align: center; }
-  @media only screen and (min-width: 960px) {
+  @media (min-width: 960px) {
     .centered-mobile {
       text-align: left; } }
 
@@ -406,54 +406,58 @@ h2 {
   padding: 1em;
   max-width: 400px; }
 
-/* Weather per day */
-.weather .weather__day {
-  width: 49%;
-  display: inline-block;
-  position: relative;
-  vertical-align: text-top;
-  padding: 0 5%;
-  box-sizing: border-box;
-  margin-bottom: 2em;
-  text-align: center; }
-  @media only screen and (min-width: 960px) {
-    .weather .weather__day {
-      width: 20%;
-      margin-bottom: 0;
-      border-right: 1px solid #D3D3D3; }
-      .weather .weather__day img {
-        margin: 0 auto; } }
-  .weather .weather__day p {
-    margin: 0; }
-  .weather .weather__day .temps {
-    opacity: 0.6; }
-  .weather .weather__day:last-of-type {
-    border-right: none; }
-.weather .current_day {
-  width: 100%;
-  text-align: center;
-  margin: 2em 0 5em; }
-  .weather .current_day span {
-    display: block; }
-  .weather .current_day .temp {
-    font-weight: 100;
-    font-size: 5em;
-    margin: .25em 0; }
-  .weather .current_day__icon img, .weather .current_day__icon p {
+/* Weather Container */
+.weather {
+  /* Weather Each day section */
+  /* Weather for current day */ }
+  .weather .weather__day {
+    width: 49%;
     display: inline-block;
-    vertical-align: middle; }
-  .weather .current_day__icon span {
-    font-size: 1.5em;
-    font-weight: 100; }
-.weather .day {
-  text-transform: uppercase; }
-.weather .temp:after {
-  content: "°"; }
+    position: relative;
+    vertical-align: text-top;
+    padding: 0 5%;
+    box-sizing: border-box;
+    margin-bottom: 2em;
+    text-align: center; }
+    @media (min-width: 960px) {
+      .weather .weather__day {
+        width: 20%;
+        margin-bottom: 0;
+        border-right: 1px solid #D3D3D3; }
+        .weather .weather__day img {
+          margin: 0 auto; } }
+    .weather .weather__day p {
+      margin: 0; }
+    .weather .weather__day .temps {
+      opacity: 0.6; }
+    .weather .weather__day:last-of-type {
+      border-right: none; }
+  .weather .current_day {
+    width: 100%;
+    text-align: center;
+    margin: 2em 0 5em; }
+    .weather .current_day span {
+      display: block; }
+    .weather .current_day .temp {
+      font-weight: 100;
+      font-size: 5em;
+      margin: .25em 0; }
+    .weather .current_day__icon img, .weather .current_day__icon p {
+      display: inline-block;
+      vertical-align: middle; }
+    .weather .current_day__icon span {
+      font-size: 1.5em;
+      font-weight: 100; }
+  .weather .day {
+    text-transform: uppercase; }
+  .weather .temp:after {
+    content: "°"; }
 
+/* Text showing when it has been updated */
 .updated {
   margin: 2em 0 4em 0;
   position: relative; }
-  @media only screen and (min-width: 960px) {
+  @media (min-width: 960px) {
     .updated {
       margin: 3em 0; } }
   .updated.loading:before {
@@ -466,10 +470,11 @@ h2 {
     left: -30px;
     top: -1px;
     display: block; }
-    @media only screen and (min-width: 960px) {
+    @media (min-width: 960px) {
       .updated.loading:before {
         position: absolute; } }
 
+/* Loading Spinner */
 .loader {
   margin-top: 2em; }
 

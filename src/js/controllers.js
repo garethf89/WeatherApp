@@ -1,6 +1,6 @@
 /* Controllers */
 
-//Main Weather Controller
+//Main Weather Controller - get the weather from API, sotre in local storage to allow user to see last information when offline
 weatherApp.controller('weatherMain',
 
  function ($scope, $interval, getweather) {
@@ -93,7 +93,7 @@ weatherApp.controller('weatherMain',
             if (navigator.geolocation) {
 	            
 	             //first run - populate with existing data if this is present to not just show a loading screen
-	            if($scope.cursdfrentDaySet){
+	            if($scope.currentDaySet){
 		            var existingDataDay = weatherController.getLocalStorage("day"),
 		            existingDataForecast = weatherController.getLocalStorage("forecast");
 		            
@@ -105,7 +105,7 @@ weatherApp.controller('weatherMain',
 	            
 				//Get the lat and lng, if successful request weather
 				weatherController.hideErrorGeo();
-                navigator.geolocation.getCurrentPosition(this.setPosition, this.showErrorGeo);
+                navigator.geolocation.getCurrentPosition(weatherController.setPosition, weatherController.showErrorGeo);
                 
             }else{
 	            weatherController.showErrorGeo();
@@ -128,6 +128,8 @@ weatherApp.controller('weatherMain',
         this.showErrorGeo = function () {
 	        $scope.errorMessage = "Cannot get your location, please make sure you have a network connection and location services enabled";
 	        $scope.errorGeo = true;
+			$scope.loadingActive = false;
+			$scope.$apply();
 	    }
 	    
 	    //remove Geolocation error
